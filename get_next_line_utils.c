@@ -6,64 +6,108 @@
 /*   By: danoguer <danoguer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 21:22:00 by danoguer          #+#    #+#             */
-/*   Updated: 2025/05/10 13:37:02 by danoguer         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:21:20 by danoguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *s) {
-    size_t len = 0;
-    while (s && *s++) // Iteración sin for
-        len++;
-    return len;
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s && *s++)
+		len++;
+	return (len);
 }
 
-char	*ft_strchr(const char *s, int c) {
-    if (!s)
-        return NULL;
-    while (*s) {
-        if (*s == (char)c)
-            return (char *)s;
-        s++;
-    }
-    return (*s == c) ? (char *)s : NULL;
+char	*ft_strchr(const char *s, int c)
+{
+	if (!s)
+		return (NULL);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }
 
-char	*ft_strdup(const char *s) {
-    size_t len = ft_strlen(s);
-    char *dup = malloc(len + 1);
-    if (!dup)
-        return NULL;
+char	*ft_strdup(const char *s)
+{
+	size_t	len;
+	char	*dup;
+	size_t	i;
 
-    size_t i = 0;
-    while (s[i]) { // Sin usar `for`
-        dup[i] = s[i];
-        i++;
-    }
-    dup[i] = '\0';
-    return dup;
+	len = ft_strlen(s);
+	dup = malloc(len + 1);
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }
 
-char	*ft_strjoin(char *s1, char *s2) {
-    size_t len1 = ft_strlen(s1);
-    size_t len2 = ft_strlen(s2);
-    char *joined = malloc(len1 + len2 + 1);
-    if (!joined)
-        return NULL;
+char	*ft_strjoin(char *s1, char *s2)
+{
+	size_t	len1;
+	size_t	len2;
+	char	*joined;
+	size_t	i;
+	size_t	j;
 
-    size_t i = 0;
-    while (s1 && s1[i]) { // Copia sin `for`
-        joined[i] = s1[i];
-        i++;
-    }
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	joined = malloc(len1 + len2 + 1);
+	if (!joined)
+		return (NULL);
+	i = 0;
+	while (s1 && s1[i])
+	{
+		joined[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2 && s2[j])
+	{
+		joined[i++] = s2[j++];
+	}
+	joined[i] = '\0';
+	free(s1);
+	return (joined);
+}
 
-    size_t j = 0;
-    while (s2 && s2[j]) { // Copia sin `for`
-        joined[i++] = s2[j++];
-    }
+char	*ft_substr(const char *s, unsigned int start, size_t len)
+{
+	char	*cut;
+	size_t	i;
+	size_t	s_len;
 
-    joined[i] = '\0';
-    free(s1); // Liberación correcta de memoria
-    return joined;
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (NULL);
+	if (len > s_len - start)
+		len = s_len - start;
+	cut = malloc(len + 1);
+	if (!cut)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		cut[i] = s[start + i];
+		i++;
+	}
+	cut[i] = '\0';
+	return (cut);
 }

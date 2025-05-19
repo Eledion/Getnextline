@@ -1,2 +1,0 @@
-Este archivo no tiene saltos de línea al final.
-Así que debe manejarse correctamente.

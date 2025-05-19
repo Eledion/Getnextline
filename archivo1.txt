@@ -1,3 +1,0 @@
-Hola, esto es una prueba.
-Esta es la segunda línea.
-Y aquí está la tercera.
