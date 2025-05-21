@@ -6,7 +6,7 @@
 /*   By: danoguer <danoguer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 21:19:12 by danoguer          #+#    #+#             */
-/*   Updated: 2025/05/19 16:21:58 by danoguer         ###   ########.fr       */
+/*   Updated: 2025/05/21 13:05:15 by danoguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 

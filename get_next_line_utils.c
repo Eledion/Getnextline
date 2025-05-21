@@ -6,7 +6,7 @@
 /*   By: danoguer <danoguer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 21:22:00 by danoguer          #+#    #+#             */
-/*   Updated: 2025/05/19 16:21:20 by danoguer         ###   ########.fr       */
+/*   Updated: 2025/05/21 13:04:40 by danoguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,6 @@ char	*ft_strchr(const char *s, int c)
 	if (*s == (char)c)
 		return ((char *)s);
 	return (NULL);
-}
-
-char	*ft_strdup(const char *s)
-{
-	size_t	len;
-	char	*dup;
-	size_t	i;
-
-	len = ft_strlen(s);
-	dup = malloc(len + 1);
-	if (!dup)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		dup[i] = s[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
